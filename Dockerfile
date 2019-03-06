@@ -5,7 +5,5 @@ RUN apt-get -y update && apt-get -y upgrade &&\
 
 WORKDIR /app
 COPY . /app
-RUN ls
+
 RUN bundle install
-
-
