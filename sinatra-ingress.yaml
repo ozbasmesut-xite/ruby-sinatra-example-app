@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sinatra-ingress
+spec:
+  rules:
+  - host: "example.com"
+    http:
+      paths:
+      - backend:
+        serviceName: sinatra-service
+        servicePort: 4567

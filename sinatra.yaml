@@ -1,0 +1,36 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sinatra
+spec:
+  replicas: 2
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: sinatra
+      tier: app
+      language: ruby
+  template:
+    metadata:
+      labels:
+        app: sinatra
+        tier: app
+        language: ruby
+    spec:
+      containers:
+        - name: sinatra
+          image: gcr.io/task-xite/sinatra:latest
+          imagePullPolicy: Always
+          command: ["ruby", "app.rb"]
+          ports:
+            - containerPort: 4567
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 4567
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          env:
+            - name: deployment_date
+              value: 'keep_this'
