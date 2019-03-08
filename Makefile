@@ -1,5 +1,5 @@
 PROJECT=sinatra
-REGISTRY ?= gcr.io/task-xite/
+REGISTRY ?= gcr.io/fourth-archive-233710/
 
 build:
 	image=$(REGISTRY)$(PROJECT) ; \
