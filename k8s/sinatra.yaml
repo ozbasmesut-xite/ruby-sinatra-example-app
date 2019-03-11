@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: sinatra
-          image: gcr.io/task-xite/sinatra:latest
+          image: gcr.io/fourth-archive-233710/sinatra:latest
           imagePullPolicy: Always
           command: ["ruby", "app.rb"]
           ports:
@@ -31,6 +31,10 @@ spec:
               port: 4567
             initialDelaySeconds: 5
             periodSeconds: 10
+          resources:
+            requests:
+              memory: "128mi"
+              cpu: "500m"
           env:
             - name: deployment_date
               value: 'keep_this'
