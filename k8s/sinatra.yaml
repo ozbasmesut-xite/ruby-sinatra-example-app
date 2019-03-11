@@ -31,10 +31,6 @@ spec:
               port: 4567
             initialDelaySeconds: 5
             periodSeconds: 10
-          resources:
-            requests:
-              memory: "128mi"
-              cpu: "500m"
           env:
             - name: deployment_date
               value: 'keep_this'
