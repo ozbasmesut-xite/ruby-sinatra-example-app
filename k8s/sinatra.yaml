@@ -25,12 +25,6 @@ spec:
           command: ["ruby", "app.rb"]
           ports:
             - containerPort: 4567
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 4567
-            initialDelaySeconds: 5
-            periodSeconds: 10
           env:
             - name: deployment_date
               value: 'keep_this'
