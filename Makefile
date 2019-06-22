@@ -1,11 +1,12 @@
 PROJECT=sinatra
-REGISTRY ?= gcr.io/fourth-archive-233710/
+SHELL := /bin/bash
+REGISTRY ?= ozbasmesut/
 
 build:
+	vtag=$(shell git tag | tail -1) ; \
 	image=$(REGISTRY)$(PROJECT) ; \
-	echo $$image ; \
-	echo $$vtag ; \
-	docker build -t $$image:latest .
+	docker build -t $$image:$$vtag .
 
 release: build
-	docker push $(REGISTRY)$(PROJECT):latest
+	vtag=$(shell git tag | tail -1) ; \
+	docker push $(REGISTRY)$(PROJECT):$$vtag
