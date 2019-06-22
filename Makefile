@@ -5,8 +5,8 @@ REGISTRY ?= ozbasmesut/
 build:
 	vtag=$(shell git tag | tail -1) ; \
 	image=$(REGISTRY)$(PROJECT) ; \
-	docker build -t $$image:$$vtag .
+	docker build -t $$image:latest .
 
 release: build
 	vtag=$(shell git tag | tail -1) ; \
-	docker push $(REGISTRY)$(PROJECT):$$vtag
+	docker push $(REGISTRY)$(PROJECT):latest
