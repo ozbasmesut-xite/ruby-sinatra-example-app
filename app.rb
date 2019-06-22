@@ -5,10 +5,10 @@ require 'bundler/setup'
 require 'sinatra'
 require 'json'
 
+set :bind, '0.0.0.0'
+
 get '/' do
-  output = "Hello world! Version 1.</br>"
-  env_string = JSON.pretty_generate(ENV.to_a).gsub!("\n",'</br>')
-  output += "Environment: </br> #{env_string} </br>"
+  output = "Hello world! Version 1."
   output
 end
 
