@@ -14,7 +14,7 @@ pipeline {
         branch 'getir'
       }
       steps {
-        sh 'aws ecs update-service --cluster getir --service sinatra-service --force-new-deployment'
+        sh 'aws ecs update-service --cluster getir --service sinatra-service --force-new-deployment --region eu-west-1'
       }
     }
   }
