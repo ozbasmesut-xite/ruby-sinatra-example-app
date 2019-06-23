@@ -1,6 +1,6 @@
 PROJECT=sinatra
 SHELL := /bin/bash
-REGISTRY ?= ozbasmesut/
+REGISTRY ?= 643512288534.dkr.ecr.eu-west-1.amazonaws.com/
 
 build:
 	image=$(REGISTRY)$(PROJECT) ; \
